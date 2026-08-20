@@ -175,14 +175,14 @@ function AbstractMCMC.bundle_samples(
     model::DynamicPPL.Model,
     spl::Emcee,
     state::EmceeState,
-    chain_type::Type{VNChain};
+    chain_type::Type{OldVNChain};
     kwargs...,
 )
     n_walkers = _get_n_walkers(spl)
     chains = map(1:n_walkers) do i
         this_walker_samples = [s[i] for s in samples]
         AbstractMCMC.bundle_samples(
-            this_walker_samples, model, spl, state, VNChain; kwargs...
+            this_walker_samples, model, spl, state, OldVNChain; kwargs...
         )
     end
     return AbstractMCMC.chainscat(chains...)

@@ -16,7 +16,7 @@ using DynamicPPL:
     Model,
     DefaultContext
 using Distributions, Libtask, Bijectors
-using FlexiChains: FlexiChains, VNChain
+using FlexiChains: FlexiChains
 using LinearAlgebra
 using ..Turing: Turing
 using StatsFuns: logsumexp
@@ -58,7 +58,8 @@ export Hamiltonian,
     init_strategy,
     loadstate
 
-const DEFAULT_CHAIN_TYPE = VNChain
+const OldVNChain = FlexiChains.FlexiChain{VarName}
+const DEFAULT_CHAIN_TYPE = OldVNChain
 
 """
     Turing.loadstate(chain::FlexiChain{<:VarName})
@@ -68,7 +69,7 @@ Extracts the last sampler state from a `FlexiChain`. This is the same function a
 
 $(FlexiChains._INITIAL_STATE_DOCSTRING)
 """
-function loadstate(chain::VNChain)
+function loadstate(chain::OldVNChain)
     return FlexiChains.last_sampler_state(chain)
 end
 

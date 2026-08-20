@@ -56,6 +56,7 @@ using DynamicPPL:
     conditioned,
     to_submodel,
     LogDensityFunction,
+    VarName,
     VarNamedTuple,
     @vnt,
     @addlogprob!,
@@ -76,6 +77,7 @@ using StatsBase: predict
 using OrderedCollections: OrderedDict
 using Libtask: might_produce, @might_produce
 
+const OldVNChain = FlexiChains.FlexiChain{VarName}
 # Turing essentials - modelling macros and inference algorithms
 export
     # DEPRECATED
@@ -175,7 +177,6 @@ export
     # kwargs in SMC
     might_produce,
     @might_produce,
-    # FlexiChains re-export
-    VNChain
+    OldVNChain
 
 end
