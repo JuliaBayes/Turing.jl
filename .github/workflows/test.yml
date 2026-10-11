@@ -34,11 +34,11 @@ jobs:
           # macOS
           - version: '1'
             os: macos-latest
-          # Minimum supported version
-          - version: 'min'
-            os: ubuntu-latest
           # 1.11
           - version: '1.11'
+            os: ubuntu-latest
+          # 1.12
+          - version: '1.12'
             os: ubuntu-latest
 
     steps:
