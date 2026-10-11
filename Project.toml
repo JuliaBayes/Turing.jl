@@ -45,6 +45,9 @@ TuringDistributionsExt = "Distributions"
 TuringDynamicHMCExt = "DynamicHMC"
 TuringMCMCChainsExt = "MCMCChains"
 
+[sources]
+FlexiChains = {rev = "v0.7", url = "https://github.com/JuliaBayes/FlexiChains.jl.git"}
+
 [compat]
 ADTypes = "1.9"
 AbstractMCMC = "5.13"
